@@ -32,7 +32,10 @@ func main() {
 		},
 	}
 
-	jim.updateName("Jimmy") // no effects
+	// jimPointer := &jim
+	// jimPointer.updateName("Jimmy")
+	// shortcut to a pointer turn a variable into a pointer. It works because there is a pointer at a receiver
+	jim.updateName("Jimmy")
 	jim.print()
 }
 
@@ -40,6 +43,6 @@ func (p person) print() {
 	fmt.Printf("%+v\n", p)
 }
 
-func (p person) updateName(newFirstName string) {
-	p.firstName = newFirstName
+func (p *person) updateName(newFirstName string) {
+	(*p).firstName = newFirstName
 }
